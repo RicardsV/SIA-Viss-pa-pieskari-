@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Viss pa pieskari – Auto service appointments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#">Viss pa pieskari</a>
+    <nav>
+      <a href="#book">Book</a>
+      <a href="#bookings-section">Appointments</a>
+      <a href="#history">Service history</a>
+    </nav>
+    <div class="auth-area">
+      <span id="user-badge" class="user-badge hidden">Guest</span>
+      <button id="login-btn" class="nav-btn" type="button">Login</button>
+      <button id="logout-btn" class="nav-btn secondary hidden" type="button">Logout</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="book">
+      <div class="hero-text">
+        <span class="eyebrow">Trusted car care</span>
+        <h1>Book your mechanic.<br>Keep every repair on record.</h1>
+        <p>Choose a service, pick a time, and keep your vehicle maintenance history in one place.</p>
+        <div class="hero-points">
+          <div>
+            <strong>Same-day</strong>
+            <span>availability</span>
+          </div>
+          <div>
+            <strong>Digital</strong>
+            <span>service record</span>
+          </div>
+          <div>
+            <strong>Expert</strong>
+            <span>mechanics</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Book an appointment</h2>
+          <span id="login-status" class="status-pill">Login required</span>
+        </div>
+
+        <form id="booking-form" novalidate>
+          <label>Your name
+            <input type="text" id="name" required autocomplete="name">
+          </label>
+          <label>Car registration number
+            <input type="text" id="plate" required placeholder="AB-1234">
+          </label>
+          <label>Service
+            <select id="service" required></select>
+          </label>
+          <label>Mechanic
+            <select id="mechanic" required></select>
+          </label>
+          <label>Date
+            <input type="date" id="date" required>
+          </label>
+          <fieldset>
+            <legend>Available times</legend>
+            <div id="slots" class="slots">Choose a mechanic and date to see times.</div>
+          </fieldset>
+          <p id="error" class="error" role="alert"></p>
+          <button type="submit" class="btn">Book appointment</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="block" id="bookings-section">
+      <h2>Your upcoming appointments</h2>
+      <p id="booking-message" class="hint">Log in to view your appointments.</p>
+      <ul id="bookings" class="list"></ul>
+    </section>
+
+    <section class="block" id="history">
+      <h2>Service history</h2>
+      <p class="hint">Sample data. This can later be connected to a real backend.</p>
+      <ul id="history-list" class="list"></ul>
+    </section>
+  </main>
+
+  <div id="login-modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="login-title">
+      <button class="modal-close" type="button" aria-label="Close login form" data-close="true">×</button>
+      <h2 id="login-title">Customer login</h2>
+      <form id="login-form" novalidate>
+        <label>Email
+          <input type="email" id="login-email" required placeholder="you@example.com">
+        </label>
+        <label>Password
+          <input type="password" id="login-password" required placeholder="Enter your password">
+        </label>
+        <p id="login-error" class="error" role="alert"></p>
+        <button type="submit" class="btn">Login</button>
+      </form>
+      <p class="demo-text">Demo account: admin@autocare.com / 123456</p>
+    </div>
+  </div>
+
+  <footer>© SIA Viss pa pieskari</footer>
+  <script src="script.js"></script>
+</body>
+</html>
+
